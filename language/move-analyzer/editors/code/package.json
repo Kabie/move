@@ -23,7 +23,7 @@
     "keywords": [
         "move"
     ],
-    "main": "./out/src/main.js",
+    "main": "./out/main.js",
     "activationEvents": [
         "onLanguage:move"
     ],
@@ -99,6 +99,7 @@
         "test": "node ./out/tests/runTests.js",
         "vscode:prepublish": "npm run pretest",
         "package": "vsce package -o move-analyzer.vsix",
+        "esbuild-base": "esbuild ./src/main.ts --bundle --outfile=out/main.js --external:vscode --format=cjs --platform=node",
         "publish": "npm run pretest && npm run test && vsce publish"
     },
     "dependencies": {
@@ -112,6 +113,7 @@
         "@typescript-eslint/eslint-plugin": "^4.33.0",
         "@typescript-eslint/parser": "^4.33.0",
         "@vscode/test-electron": "^1.6.1",
+        "esbuild": "^0.14.42",
         "eslint": "^7.32.0",
         "eslint-plugin-tsdoc": "^0.2.14",
         "glob": "^7.1.7",
